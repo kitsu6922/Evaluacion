@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="48.0" layoutY="70.0" mnemonicParsing="false" onAction="#vap" prefHeight="50.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Vacunas" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="20.0" layoutY="170.0" mnemonicParsing="false" onAction="#lap" prefHeight="50.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Localizaciones" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="20.0" layoutY="270.0" mnemonicParsing="false" onAction="#pap" prefHeight="50.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Población" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="74.0" layoutY="470.0" mnemonicParsing="false" prefHeight="50.0" style="-fx-background-color: #cc0000; -fx-background-radius: 50;" text="Salir" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane fx:id="poblacionAp" layoutX="210.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Separator layoutX="528.0" layoutY="57.0" orientation="VERTICAL" prefHeight="200.0" />
+            <TableView fx:id="tablaPersonas" layoutX="1.0" layoutY="399.0" onMouseClicked="#clickTablaPoblacion" prefHeight="367.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+              <columns>
+                <TableColumn fx:id="tcId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="tcNombre" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="tcSexo" prefWidth="75.0" text="Sexo" />
+                  <TableColumn fx:id="tcEstado" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="tcCiudad" prefWidth="75.0" text="Ciudad" />
+                  <TableColumn fx:id="tcDireccion" prefWidth="75.0" text="Dirección" />
+                  <TableColumn fx:id="tcCurp" prefWidth="75.0" text="CURP" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <TextField fx:id="txtNombre" layoutX="24.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="Nombre" />
+            <TextField fx:id="txtCiudad" layoutX="225.0" layoutY="33.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="14.0" prefHeight="20.0" prefWidth="150.0" text="Ciudad" />
+            <TextField fx:id="txtDireccion" layoutX="412.0" layoutY="33.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="14.0" prefHeight="20.0" prefWidth="150.0" text="Dirección" />
+            <TextField fx:id="txtCurp" layoutX="610.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="610.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="CURP" />
+            <RadioButton fx:id="rbMasculino" layoutX="24.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#masculino" prefHeight="30.0" prefWidth="150.0" selected="true" text="Masculino" />
+            <RadioButton fx:id="rbFemenino" layoutX="24.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#femenino" prefHeight="30.0" prefWidth="150.0" text="Femenino" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="90.0" prefHeight="20.0" prefWidth="150.0" text="Sexo" />
+            <ComboBox fx:id="cbEstado" layoutX="225.0" layoutY="118.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="224.0" layoutY="91.0" prefHeight="20.0" prefWidth="150.0" text="Estado" />
+            <Button layoutX="562.0" layoutY="95.0" mnemonicParsing="false" onAction="#guardarPoblacion" prefHeight="25.0" prefWidth="90.0" text="Guardar" />
+            <Button layoutX="562.0" layoutY="132.0" mnemonicParsing="false" onAction="#borrarPoblacion" prefHeight="25.0" prefWidth="90.0" text="Borrar" />
+            <Button layoutX="422.0" layoutY="120.0" mnemonicParsing="false" onAction="#agregarPoblacion" prefHeight="25.0" prefWidth="90.0" text="Agregar" />
+            <TextField fx:id="txtId" layoutX="671.0" layoutY="98.0" prefHeight="30.0" prefWidth="100.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="79.0" prefHeight="20.0" prefWidth="100.0" text="ID" />
+            <Separator layoutX="529.0" layoutY="166.0" prefHeight="1.0" prefWidth="277.0" />
+            <Separator layoutX="529.0" layoutY="78.0" prefHeight="1.0" prefWidth="277.0" />
+            <Button layoutX="546.0" layoutY="182.0" mnemonicParsing="false" onAction="#actualizarPoblacion" prefHeight="25.0" prefWidth="90.0" text="Actualizar" />
+            <Button layoutX="668.0" layoutY="182.0" mnemonicParsing="false" onAction="#vaciarPoblacion" prefHeight="25.0" prefWidth="90.0" text="Vaciar" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="localizacionesAp" layoutX="210.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Separator layoutX="528.0" layoutY="57.0" orientation="VERTICAL" prefHeight="200.0" />
+            <TableView fx:id="tablaLocalizaciones" layoutX="1.0" layoutY="399.0" onMouseClicked="#clickTablaLocalizaciones" prefHeight="423.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <columns>
+                  <TableColumn fx:id="tclId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="tclNombre" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="tclEstado" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="tclCiudad" prefWidth="75.0" text="Ciudad" />
+                  <TableColumn fx:id="tclDireccion" prefWidth="75.0" text="Dirección" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <TextField fx:id="txtNombreL" layoutX="24.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="Nombre" />
+            <TextField fx:id="txtCiudadL" layoutX="408.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="408.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="Ciudad" />
+            <TextField fx:id="txtDireccionL" layoutX="595.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="595.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="Dirección" />
+            <ComboBox fx:id="cbEstadoL" layoutX="216.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="15.0" prefHeight="20.0" prefWidth="150.0" text="Estado" />
+            <Button layoutX="562.0" layoutY="95.0" mnemonicParsing="false" onAction="#guardarLocalizaciones" prefHeight="25.0" prefWidth="90.0" text="Guardar" />
+            <Button layoutX="562.0" layoutY="132.0" mnemonicParsing="false" onAction="#borrarLocalizaciones" prefHeight="25.0" prefWidth="90.0" text="Borrar" />
+            <Button layoutX="24.0" layoutY="86.0" mnemonicParsing="false" onAction="#agregarLocalizaciones" prefHeight="25.0" prefWidth="500.0" text="Agregar" />
+            <TextField fx:id="txtIdL" layoutX="671.0" layoutY="98.0" prefHeight="30.0" prefWidth="100.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="79.0" prefHeight="20.0" prefWidth="100.0" text="ID" />
+            <Separator layoutX="529.0" layoutY="78.0" prefHeight="1.0" prefWidth="277.0" />
+            <Button layoutX="162.0" layoutY="132.0" mnemonicParsing="false" onAction="#actualizarLocalizaciones" prefHeight="25.0" prefWidth="90.0" text="Actualizar" />
+            <Button layoutX="284.0" layoutY="132.0" mnemonicParsing="false" onAction="#vaciarLocalizaciones" prefHeight="25.0" prefWidth="90.0" text="Vaciar" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="vacunasAp" layoutX="210.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TableView fx:id="tablaVacunas" layoutX="1.0" layoutY="399.0" onMouseClicked="#clickTablaVacunas" prefHeight="423.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <columns>
+                  <TableColumn fx:id="tcvId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="tcvIDP" prefWidth="75.0" text="ID_PERSONA" />
+                  <TableColumn fx:id="tcvIDL1" prefWidth="75.0" text="ID_LOCALIZACION 1" />
+                  <TableColumn fx:id="tcvF1" prefWidth="75.0" text="FECHA 1" />
+                  <TableColumn fx:id="tcvIDL2" prefWidth="75.0" text="ID_LOCALIZACION 2" />
+                  <TableColumn fx:id="tcvF2" prefWidth="75.0" text="FECHA 2" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <ComboBox fx:id="cbPersona" layoutX="14.0" layoutY="33.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="150.0" text="Persona" />
+            <Button layoutX="10.0" layoutY="131.0" mnemonicParsing="false" onAction="#agregarVacunas" prefHeight="25.0" prefWidth="780.0" text="Registrar" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+            <Button layoutX="355.0" layoutY="12.0" mnemonicParsing="false" onAction="#actualizarVacunas" prefHeight="25.0" prefWidth="90.0" text="Actualizar" />
+            <ComboBox fx:id="cbLocalizacion" layoutX="640.0" layoutY="33.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="640.0" layoutY="14.0" prefHeight="20.0" prefWidth="150.0" text="Localizacion" />
+            <TextField fx:id="txtNombreVP" layoutX="14.0" layoutY="93.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="76.0" prefWidth="150.0" text="Nombre" />
+            <TextField fx:id="txtSexoV" layoutX="193.0" layoutY="93.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" layoutX="193.0" layoutY="76.0" prefWidth="150.0" text="Sexo" />
+            <TextField fx:id="txtCiudadV" layoutX="461.0" layoutY="93.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" layoutX="461.0" layoutY="76.0" prefWidth="150.0" text="Ciudad" />
+            <TextField fx:id="txtNombreVL" layoutX="640.0" layoutY="93.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label alignment="CENTER" layoutX="640.0" layoutY="76.0" prefWidth="150.0" text="Nombre" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
